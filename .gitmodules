@@ -1,0 +1,12 @@
+[submodule "uni-push-skill"]
+	path = uni-push-skill
+	url = https://github.com/l4place0/uni-push-skill.git
+[submodule "graph-engineering-skill"]
+	path = graph-engineering-skill
+	url = https://github.com/l4place0/graph-engineering-skill.git
+[submodule "prototype-engineering-skill"]
+	path = prototype-engineering-skill
+	url = https://github.com/l4place0/prototype-engineering-skill.git
+[submodule "bili-tutor-skill"]
+	path = bili-tutor-skill
+	url = https://github.com/l4place0/bili-tutor-skill.git
