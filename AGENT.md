@@ -6,6 +6,7 @@
 - `graph-engineering-skill`
 - `prototype-engineering-skill`
 - `bili-tutor-skill`
+- `index-codex-session-value`
 
 ## 仓库边界
 
