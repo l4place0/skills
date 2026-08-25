@@ -16,7 +16,7 @@
 | [`graph-engineering-skill`](https://github.com/l4place0/graph-engineering-skill) | 构建、校验与管理基于 JSON 的任务依赖图 |
 | [`prototype-engineering-skill`](https://github.com/l4place0/prototype-engineering-skill) | 在现有代码库中开发边界清晰、可验证的原型 |
 | [`bili-tutor-skill`](https://github.com/l4place0/bili-tutor-skill) | 编排视频学习、转录、关键帧与学习笔记工作流 |
-| [`index-codex-session-value-skill`](https://github.com/l4place0/index-codex-session-value-skill) | 为保留的 Codex 会话建立只读治理索引并执行评分与审计 |
+| [`powerful-codex`](https://github.com/l4place0/powerful-codex) | Powerful Codex Skill 组；内含 `index-codex-session-value-skill` 会话治理子技能 |
 
 ### 克隆与初始化
 
@@ -61,7 +61,7 @@ Each skill retains its own repository, version history, and release process. Thi
 | [`graph-engineering-skill`](https://github.com/l4place0/graph-engineering-skill) | Build, validate, and manage JSON-based task dependency graphs |
 | [`prototype-engineering-skill`](https://github.com/l4place0/prototype-engineering-skill) | Develop bounded and verifiable prototypes within existing codebases |
 | [`bili-tutor-skill`](https://github.com/l4place0/bili-tutor-skill) | Orchestrate video learning, transcription, key-frame, and study-note workflows |
-| [`index-codex-session-value-skill`](https://github.com/l4place0/index-codex-session-value-skill) | Build a read-only governance index to score and audit retained Codex sessions |
+| [`powerful-codex`](https://github.com/l4place0/powerful-codex) | Powerful Codex skill group containing the `index-codex-session-value-skill` governance workflow |
 
 ### Clone and Initialize
 

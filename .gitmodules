@@ -10,6 +10,6 @@
 [submodule "bili-tutor-skill"]
 	path = bili-tutor-skill
 	url = https://github.com/l4place0/bili-tutor-skill.git
-[submodule "index-codex-session-value-skill"]
-	path = index-codex-session-value-skill
-	url = https://github.com/l4place0/index-codex-session-value-skill.git
+[submodule "powerful-codex"]
+	path = powerful-codex
+	url = https://github.com/l4place0/powerful-codex.git
