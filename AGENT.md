@@ -2,44 +2,50 @@
 
 本仓库是 `l4place0` 名下 Agent Skills 的统一开发与管辖仓库。
 
-## 当前模式：从子模组迁往单一仓库
+## 当前模式：单一仓库直接收纳
 
-本仓库正在重构：不再以 Git 子模组收纳所有 skill，而是把 skill 直接统一收纳进本仓库。
-迁移尚未完成，因此当前存在两种形态：
+本仓库已完成从 Git 子模组到「单一仓库直接收纳各 skill」的迁移，不再使用子模组。
 
-- 仍在迁移中的 skill 以 Git 子模组存在：`prototype-engineering-skill`。
-- 已并入产品仓库的 skill 不再在本仓库维护，见下表。
+- 每个 skill 位于仓库根目录的同名文件夹。
+- 每个 skill 目录自包含，至少包含 `SKILL.md`，可按需附带 `references/`、`scripts/` 等辅助文件。
+- 目录名与 `SKILL.md` 中 frontmatter 的 `name` 保持一致。
 
-### 已迁出的 skill
+### 当前纳管的 skill
+
+| Skill | 形态 |
+| --- | --- |
+| `prototype` | 纯 Markdown 引导型，无脚本、无状态机 |
+
+### 已迁出到产品仓库的 skill
 
 | Skill | 新位置 |
 | --- | --- |
 | `agent-video-sum` | [`l4place0/agent-video-sum`](https://github.com/l4place0/agent-video-sum) 的 `skills/agent-video-sum/` |
 | `uni-agent-push` | [`l4place0/uni-agent-push`](https://github.com/l4place0/uni-agent-push) 的 `skills/uni-agent-push/` |
 
+已迁出的 skill 由对应产品仓库负责，本仓库不再保留副本，避免双份维护。
+
 ### 已移除的 skill
 
-`graph-engineering-skill` 与 `powerful-codex` 不再需要，其子模组登记与版本指针已删除。
-删除仅作用于本仓库的登记，不影响其独立 GitHub 仓库。
+- `graph-engineering-skill`、`powerful-codex`：不再需要，已整体移除。
+- `prototype-engineering-skill`：已重写为根目录下的 `prototype`，去掉脚本、JSON 状态机与阶段闸门，
+  改为纯 Markdown 引导。原独立仓库 `l4place0/prototype-engineering-skill` 保留在 GitHub 上作为历史，
+  但不再与 `prototype` 同步。
 
 ## 仓库边界
 
-- 每个 skill 的源代码、版本历史、Issue 与发布流程归其各自的 GitHub 仓库管理。
-- 本仓库只负责统一入口、跨 skill 协作规则及各子模组版本指针，不复制或内嵌子仓库源码。
-- 已迁入产品仓库的 skill 由该产品仓库负责，本仓库不再保留副本，避免双份维护。
-- 子模组目录名应与其 GitHub 仓库名一致。
+- 每个 skill 的语义内容归其所在目录管理；本仓库不复制已迁出 skill 的源码。
+- 不把本机绝对路径、个人环境变量或仓库外的文件写进 skill。
+- 不覆盖仓库内已有的未提交改动，不对仓库执行破坏性重置。
 
 ## 开发与提交
 
-- 修改仍在子模组中的 skill 时，在对应子模组内创建分支、提交并推送；随后在本仓库提交更新后的子模组指针。
-- 修改已迁出的 skill 时，直接在产品仓库的 `skills/<name>/` 目录内完成，不在本仓库提交。
-- 不把多个子模组的源码变更伪装成一个本仓库提交。总仓提交应清楚列出受影响的子模组及其目标提交。
-- 不覆盖子模组内已有的未提交改动，不对任一仓库执行破坏性重置。
-- 克隆或初始化本仓库时使用 `git clone --recurse-submodules`，或在克隆后执行 `git submodule update --init --recursive`。
-- 拉取总仓更新后，执行 `git submodule update --init --recursive` 使各 skill 与记录的版本一致。
+- 直接修改对应 skill 目录，随后在本仓库提交。
+- 若某个 skill 同时存在独立产品仓库，应在该仓库按标准 `skills/<name>/` 布局维护，并更新本文档的归属表。
+- 一个提交只表达一类变更；不要把互不相关的 skill 改动混成一个提交。
+- 提交前确认 `SKILL.md` 的 frontmatter 可解析、`name` 与目录名一致。
 
 ## 跨 Skill 协作
 
-- 跨仓变更应先确认依赖顺序，并分别在相关子模组中验证。
 - 一个 skill 对另一个 skill 的依赖必须通过明确、可复现的接口或版本表达，不依赖本机绝对路径。
-- 共用工具或约定若形成独立演进单元，应建立独立仓库并以新的子模组纳管。
+- 共用工具或约定若形成独立演进单元，应建立独立仓库维护，而不是在 skill 目录间复制。
