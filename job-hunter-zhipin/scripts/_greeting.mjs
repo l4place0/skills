@@ -38,6 +38,9 @@ export async function loadProfile() {
 
 /** 把数组压成「A、B、C」 */
 const listJoin = (arr, sep = '、') => (arr || []).filter(Boolean).join(sep);
+/** 转义正则特殊字符，避免 C++ 之类被当成量词 */
+const escapeRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, (m) => "\\" + m);
+
 
 /**
  * 生成「背书句」：学历 + 证书 + 奖项。
@@ -85,6 +88,12 @@ export function buildCredential(p) {
  */
 const DIRECTION_RULES = [
   {
+    key: 'ops',
+    match: /运维|Helpdesk|桌面支持|IT支持|网络工程|数据中心/i,
+    hint: ['运维', 'Linux', '网络', 'IT'],
+    pivot: '这个方向我有相关经验。',
+  },
+  {
     key: 'security',
     match: /安全|渗透|等保|风控|合规/i,
     hint: ['安全', '渗透', '风控', '合规', '等保'],
@@ -92,7 +101,7 @@ const DIRECTION_RULES = [
   },
   {
     key: 'ai',
-    match: /AI|智能体|Agent|大模型|LLM|算法|数据/i,
+    match: /AI|智能体|Agent|大模型|LLM|机器学习/i,
     hint: ['AI', 'Agent', '大模型', 'Python', '算法', '数据', '模型'],
     pivot: '这个方向我做过相关的，愿意深入。',
   },
@@ -119,12 +128,6 @@ const DIRECTION_RULES = [
     match: /前端|web|vue|react|h5/i,
     hint: ['前端', 'React', 'Vue', 'TypeScript', 'JavaScript'],
     pivot: '这个方向我做过相关的。',
-  },
-  {
-    key: 'ops',
-    match: /运维|IT|Helpdesk|桌面|支持|网络/i,
-    hint: ['运维', 'Linux', '网络', 'IT'],
-    pivot: '这个方向我有相关经验。',
   },
   {
     key: 'backend',
@@ -159,7 +162,9 @@ function pickSkillsFor(jobName, profile) {
   const scored = skills.map(s => {
     let score = 0;
     for (const h of hints) {
-      if (new RegExp(h, 'i').test(s)) score += 1;
+      let re;
+      try { re = new RegExp(escapeRe(h), 'i'); } catch { continue; }
+      if (re.test(s)) score += 1;
     }
     return { s, score };
   });
