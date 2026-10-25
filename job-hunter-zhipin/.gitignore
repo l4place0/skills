@@ -1,0 +1,10 @@
+# Generated output — pipeline JSON, greet logs, tracking tables
+out/
+
+# Candidate profile: contains personal data (name, awards, portfolio URL).
+# Only profile.example.json is committed.
+profile.json
+
+# Local debugging
+*.log
+node_modules/

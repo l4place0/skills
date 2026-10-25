@@ -1,0 +1,54 @@
+{
+  "_comment": "候选人档案。复制为 profile.json 后按本人情况填写。任何字段都可省略 —— 省略即不生成对应段落，不会留占位符。本示例是技术岗，但同一结构适用于任何职业。",
+
+  "name": "示例姓名",
+
+  "targetRoles": ["AI Agent", "Python", "C++"],
+  "city": "惠州",
+
+  "education": {
+    "degree": "本科",
+    "school": "示例大学",
+    "major": "计算机科学与技术",
+    "cohort": "2026届"
+  },
+
+  "_yearsExperience_comment": "可省略。填了会在文案里体现资历；应届生建议留 null，不要写数字。",
+  "yearsExperience": null,
+
+  "_skills_comment": "写具体做过什么，不要写形容词。命中岗位方向的前 3 条会被挑进文案。",
+  "skills": [
+    "C++（搜索引擎、多线程、内存优化）",
+    "Python（FastAPI、数据采集、模型训练）",
+    "React + TypeScript",
+    "Linux 运维与故障排查",
+    "AI Agent / MCP 协议开发"
+  ],
+
+  "_certificates_comment": "执照、职称、语言证书都算。没有就删掉这个字段。",
+  "certificates": ["软件设计师（中级职称）", "大学英语四级"],
+
+  "_awards_comment": "支持字符串或 {short, full} 对象。short 用于招呼语（要短），full 可留给简历。最多取 2 项。",
+  "awards": [
+    { "short": "XX 大赛全国二等奖", "full": "2025 年 XX 全国大学生 XX 大赛 全国二等奖" },
+    { "short": "XX 杯 C/C++ 省三等奖", "full": "第十六届 XX 杯全国软件和信息技术专业人才 XX 赛区 C/C++ 程序设计大赛 三等奖" }
+  ],
+
+  "_portfolio_comment": "GitHub / 作品集 / 抖音 / 小红书 / 个人站都行。没有就整个删掉，招呼语不会出现链接行。",
+  "portfolio": {
+    "label": "GitHub",
+    "url": "https://github.com/example",
+    "blurb": "上面有开源项目和代码，方便您快速了解我的能力。"
+  },
+
+  "strengths": "动手能力强，做过的项目都能讲清楚细节；学新东西快，愿意从基础做起。",
+
+  "greetingStyle": {
+    "_comment": "可选。控制语气与长度。",
+    "opening": "您好，看到贵司在招{job}，想自荐一下。",
+    "closing": "希望能有机会聊聊。",
+    "maxCerts": 2,
+    "maxAwards": 2,
+    "maxLength": 280
+  }
+}

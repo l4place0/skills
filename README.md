@@ -14,6 +14,7 @@
 | Skill | 用途 |
 | --- | --- |
 | [`prototype`](./prototype) | 把讨论过的想法快速做成 `proto/*` 分支上的可运行原型，并说明哪些是真的、哪些是假的 |
+| [`job-hunter-zhipin`](./job-hunter-zhipin) | BOSS直聘求职自动化：按方向搜索、提取明文薪资与 JD、生成定制招呼语、CDP 真实点击发送、维护投递追踪索引。含 Onboarding 环境检查与 FAQ 故障库 |
 
 ### 已迁出的 Skills
 
